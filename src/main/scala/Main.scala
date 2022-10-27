@@ -38,7 +38,8 @@ object Main {
     // Use BigInt instead of Int.
     // What is the difference between these two data types?
 
-    // The difference between Int and BigInt is that Int is a 32-bit signed integer, while BigInt is an arbitrary-precision integer.
+    // The difference between Int and BigInt is that Int is a 32-bit signed integer,
+    // while BigInt is an arbitrary-precision integer.
     def fib(value: Int) : BigInt = {
       if (value == 0) {
         0
@@ -51,5 +52,18 @@ object Main {
 
     // Testing with n = 9
     println("Fibonacci number of 9: " + fib(9))
+
+    // Task2: Concurrency in Scala
+
+    // a) Create a function that takes as argument a function and returns a Thread initialized with the input function.
+    // Make sure that the returned thread is not started.
+    def thread(f: => Unit): Thread = {
+      val t = new Thread {
+        override def run(): Unit = f
+      }
+      t
+    }
+    // Testing with a simple function
+    val t = thread { println("Hello from a thread!") }
   }
 }
