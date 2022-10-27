@@ -16,6 +16,19 @@ object Main {
     }
 
     // Testing with array from a)
-    println(sum(array.toArray))
+    println("Sum using for loop: " + sum(array.toArray))
+
+    // c) Create a function that sums the elements in an array of integers using recursion
+    def sumRec(array: Array[Int]): Int = {
+      if (array.length == 0) {
+        0
+      } else {
+        array(0) + sumRec(array.drop(1))
+      }
+    }
+
+    // Testing with array from a)
+    println("Sum using recursion: " + sumRec(array.toArray))
+
   }
 }
