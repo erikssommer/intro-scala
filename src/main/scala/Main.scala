@@ -44,6 +44,11 @@ object Main {
     // One of them can therefor be blocked from making a change to the variable.
     // A situation where this can be problematic is when two threads are trying to access the same variable in a database.
 
+    // c)
+    concurrency.thread(concurrency.improvedIncreaseCounter()).start()
+    concurrency.thread(concurrency.improvedIncreaseCounter()).start()
+    concurrency.thread(concurrency.printImprovedCounter()).start()
+
 
 
   }
