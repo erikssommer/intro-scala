@@ -55,5 +55,29 @@ object Main {
 
     // Write in Scala an example of a deadlock using lazy val
     // https://www.baeldung.com/scala/lazy-val
+
+    object Foo {
+      lazy val b: Int = Bar.getFoo
+      val value = 15
+    }
+
+    object Bar {
+      lazy val getFoo: Int = Foo.value
+    }
+
+    object FooBar {
+      def exec(): Seq[Int] = {
+        val res = Future.sequence(Seq(
+          Future {
+            Foo.b
+          },
+          Future {
+            Bar.getFoo
+          }
+        ))
+        Await.result(res, 3.seconds)
+      }
+    }
+    println(FooBar.exec())
   }
 }
