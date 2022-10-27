@@ -1,3 +1,7 @@
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.{Await, Future}
+import scala.concurrent.duration.DurationInt
+
 object Main {
   def main(args: Array[String]): Unit = {
 
@@ -44,12 +48,12 @@ object Main {
     // One of them can therefor be blocked from making a change to the variable.
     // A situation where this can be problematic is when two threads are trying to access the same variable in a database.
 
-    // c)
+    // c) Threadsafety with atomic variables
     concurrency.thread(concurrency.improvedIncreaseCounter()).start()
     concurrency.thread(concurrency.improvedIncreaseCounter()).start()
     concurrency.thread(concurrency.printImprovedCounter()).start()
 
-
-
+    // Write in Scala an example of a deadlock using lazy val
+    // https://www.baeldung.com/scala/lazy-val
   }
 }
