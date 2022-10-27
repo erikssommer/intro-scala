@@ -1,6 +1,10 @@
 object Main {
   def main(args: Array[String]): Unit = {
+
+    // Hello World in Scala
     println("Hello world!")
+
+    // Task 1: Scala Introduction
 
     // a) Generate an array containing the values 1 up to and including 50 using for loop
     val array = for (i <- 1 to 50) yield i
