@@ -30,29 +30,19 @@ object Main {
     println("Fibonacci number of 9: " + introduction.fib(9))
 
     // Task2: Concurrency in Scala
+    val concurrency = new Concurrency()
 
-    // a) Create a function that takes as argument a function and returns a Thread initialized with the input function.
-    // Make sure that the returned thread is not started.
-    def thread(f: => Unit): Thread = {
-      val t = new Thread {
-        override def run(): Unit = f
-      }
-      t
-    }
+    // Start three threads, two that initialize increaseCounter and one that initialize the print function.
+    concurrency.thread(concurrency.increaseCounter()).start()
+    concurrency.thread(concurrency.increaseCounter()).start()
+    concurrency.thread(concurrency.printCounter()).start()
 
-    // b) Given the following code snippet:
-    private var counter: Int = 0
-    def increaseCounter(): Unit = {
-      counter += 1
-    }
+    // Run your program a few times and notice the print output. What is this phenomenon called?
+    // Give one example of a situation where it can be problematic.
 
-    // Create a function that prints the current counter variable.
-    def printCounter(): Unit = {
-      println(counter)
-    }
-    // Start three threads, two that initialize increaseCounter
-
-
+    // This is called deadlock and it occurs when two threads that depends on eachother try to access the same variable
+    // One of them can therefor be blocked from making a change to the variable.
+    // A situation where this can be problematic is when two threads are trying to access the same variable in a database.
 
 
 
