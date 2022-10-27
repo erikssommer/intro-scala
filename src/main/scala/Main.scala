@@ -30,5 +30,22 @@ object Main {
     // Testing with array from a)
     println("Sum using recursion: " + sumRec(array.toArray))
 
+    // Create a function to compute the nth Fibonacci number using recursion without using memoization (or other optimizations).
+    // Use BigInt instead of Int.
+    // What is the difference between these two data types?
+
+    // The difference between Int and BigInt is that Int is a 32-bit signed integer, while BigInt is an arbitrary-precision integer.
+    def fib(value: Int) : BigInt = {
+      if (value == 0) {
+        0
+      } else if (value == 1) {
+        1
+      } else {
+        fib(value - 1) + fib(value - 2)
+      }
+    }
+
+    // Testing with n = 9
+    println("Fibonacci number of 9: " + fib(9))
   }
 }
