@@ -1,57 +1,55 @@
-object Main {
-  def main(args: Array[String]): Unit = {
+object Main extends App {
+  // Hello World in Scala
+  println("Hello world!")
 
-    // Hello World in Scala
-    println("Hello world!")
+  // Task 1: Scala Introduction
+  val introduction = new Introduction()
+  // a) Generate an array containing the values 1 up to and including 50 using for loop
+  val array = for (i <- 1 to 50) yield i
+  println(array.mkString(", "))
 
-    // Task 1: Scala Introduction
-    val introduction = new Introduction()
-    // a) Generate an array containing the values 1 up to and including 50 using for loop
-    val array = for (i <- 1 to 50) yield i
-    println(array.mkString(", "))
+  // b) Create a function that sums the elements in an array of integers using a for loop
 
-    // b) Create a function that sums the elements in an array of integers using a for loop
+  // Testing with array from a)
+  println("Sum using for loop: " + introduction.sum(array.toArray))
 
-    // Testing with array from a)
-    println("Sum using for loop: " + introduction.sum(array.toArray))
+  // c) Create a function that sums the elements in an array of integers using recursion
 
-    // c) Create a function that sums the elements in an array of integers using recursion
+  // Testing with array from a)
+  println("Sum using recursion: " + introduction.sumRec(array.toArray))
 
-    // Testing with array from a)
-    println("Sum using recursion: " + introduction.sumRec(array.toArray))
+  // Create a function to compute the nth Fibonacci number using recursion without using memoization (or other optimizations).
+  // Use BigInt instead of Int.
+  // What is the difference between these two data types?
 
-    // Create a function to compute the nth Fibonacci number using recursion without using memoization (or other optimizations).
-    // Use BigInt instead of Int.
-    // What is the difference between these two data types?
+  // The difference between Int and BigInt is that Int is a 32-bit signed integer,
+  // while BigInt is an arbitrary-precision integer.
+  // Testing with n = 9
+  println("Fibonacci number of 9: " + introduction.fib(9))
 
-    // The difference between Int and BigInt is that Int is a 32-bit signed integer,
-    // while BigInt is an arbitrary-precision integer.
-    // Testing with n = 9
-    println("Fibonacci number of 9: " + introduction.fib(9))
+  // Task2: Concurrency in Scala
+  val concurrency = new Concurrency()
 
-    // Task2: Concurrency in Scala
-    val concurrency = new Concurrency()
+  // Start three threads, two that initialize increaseCounter and one that initialize the print function.
+  concurrency.thread(concurrency.increaseCounter).start()
+  concurrency.thread(concurrency.increaseCounter).start()
+  concurrency.thread(concurrency.printCounter).start()
 
-    // Start three threads, two that initialize increaseCounter and one that initialize the print function.
-    concurrency.thread(concurrency.increaseCounter).start()
-    concurrency.thread(concurrency.increaseCounter).start()
-    concurrency.thread(concurrency.printCounter).start()
+  // Run your program a few times and notice the print output. What is this phenomenon called?
+  // Give one example of a situation where it can be problematic.
 
-    // Run your program a few times and notice the print output. What is this phenomenon called?
-    // Give one example of a situation where it can be problematic.
+  // This is called deadlock and it occurs when multiple threads or processes try to access the same variable at the same time
+  // One of them can therefore be blocked from making a change to the variable.
+  // A situation where this can be problematic is when two threads are trying to access the same variable in a database.
 
-    // This is called deadlock and it occurs when multiple threads or processes try to access the same variable at the same time
-    // One of them can therefore be blocked from making a change to the variable.
-    // A situation where this can be problematic is when two threads are trying to access the same variable in a database.
+  // c) Threadsafety with atomic variables
+  concurrency.thread(concurrency.improvedIncreaseCounter).start()
+  concurrency.thread(concurrency.improvedIncreaseCounter).start()
+  concurrency.thread(concurrency.printImprovedCounter).start()
 
-    // c) Threadsafety with atomic variables
-    concurrency.thread(concurrency.improvedIncreaseCounter).start()
-    concurrency.thread(concurrency.improvedIncreaseCounter).start()
-    concurrency.thread(concurrency.printImprovedCounter).start()
-    
-    // This question was answered in 2 b)
+  // This question was answered in 2 b)
 
-    // Task 3: Deadlock in Scala
-    Deadlock.run
-  }
+  // Task 3: Deadlock in Scala
+  Deadlock.run
+
 }

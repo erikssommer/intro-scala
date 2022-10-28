@@ -13,6 +13,7 @@ class Concurrency {
 
   // b) Given the following code snippet:
   private var counter: Int = 0
+
   def increaseCounter(): Unit = {
     counter += 1
   }

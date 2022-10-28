@@ -5,7 +5,7 @@ import scala.concurrent.{Await, Future}
 // Scala example of a deadlock using lazy val
 // https://www.baeldung.com/scala/lazy-val
 
-object Deadlock extends App {
+object Deadlock {
   def run: Seq[Int] = {
     val result = Future.sequence(Seq(
       Future {
@@ -17,5 +17,6 @@ object Deadlock extends App {
     ))
     Await.result(result, 5.second)
   }
+
   run
 }
