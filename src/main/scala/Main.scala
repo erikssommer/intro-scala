@@ -40,8 +40,8 @@ object Main {
     // Run your program a few times and notice the print output. What is this phenomenon called?
     // Give one example of a situation where it can be problematic.
 
-    // This is called deadlock and it occurs when two threads that depends on eachother try to access the same variable
-    // One of them can therefor be blocked from making a change to the variable.
+    // This is called deadlock and it occurs when multiple threads or processes try to access the same variable at the same time
+    // One of them can therefore be blocked from making a change to the variable.
     // A situation where this can be problematic is when two threads are trying to access the same variable in a database.
 
     // c) Threadsafety with atomic variables
