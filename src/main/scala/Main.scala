@@ -50,6 +50,11 @@ object Main extends App {
   // This question was answered in 2 b)
 
   // Task 3: Deadlock in Scala
-  Deadlock.run
+  //catch all exceptions and print the stack trace
+  try {
+    Deadlock.run
+  } catch {
+    case e: Exception => e.printStackTrace()
+  }
 
 }
