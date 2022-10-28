@@ -3,10 +3,10 @@ import java.util.concurrent.atomic.AtomicInteger
 class Concurrency {
   // a) Create a function that takes as argument a function and returns a Thread initialized with the input function.
   // Make sure that the returned thread is not started.
-  def thread(func: => Unit): Thread = {
+  def thread(func: () => Unit): Thread = {
     new Thread {
       override def run(): Unit = {
-        func
+        func()
       }
     }
   }

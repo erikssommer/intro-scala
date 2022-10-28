@@ -33,9 +33,9 @@ object Main {
     val concurrency = new Concurrency()
 
     // Start three threads, two that initialize increaseCounter and one that initialize the print function.
-    concurrency.thread(concurrency.increaseCounter()).start()
-    concurrency.thread(concurrency.increaseCounter()).start()
-    concurrency.thread(concurrency.printCounter()).start()
+    concurrency.thread(concurrency.increaseCounter).start()
+    concurrency.thread(concurrency.increaseCounter).start()
+    concurrency.thread(concurrency.printCounter).start()
 
     // Run your program a few times and notice the print output. What is this phenomenon called?
     // Give one example of a situation where it can be problematic.
@@ -45,9 +45,9 @@ object Main {
     // A situation where this can be problematic is when two threads are trying to access the same variable in a database.
 
     // c) Threadsafety with atomic variables
-    concurrency.thread(concurrency.improvedIncreaseCounter()).start()
-    concurrency.thread(concurrency.improvedIncreaseCounter()).start()
-    concurrency.thread(concurrency.printImprovedCounter()).start()
+    concurrency.thread(concurrency.improvedIncreaseCounter).start()
+    concurrency.thread(concurrency.improvedIncreaseCounter).start()
+    concurrency.thread(concurrency.printImprovedCounter).start()
     
     // This question was answered in 2 b)
 
