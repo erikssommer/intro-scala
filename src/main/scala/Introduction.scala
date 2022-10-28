@@ -11,7 +11,7 @@ class Introduction {
     if (array.length == 0) {
       0
     } else {
-      array(0) + sumRec(array.drop(1))
+      array.head + sumRec(array.tail)
     }
   }
 
