@@ -49,7 +49,12 @@ object Main extends App {
 
   // This question was answered in 2 b)
 
-  // Task 3: Deadlock in Scala
+  // d) One problem you will often meet in concurrency programming is deadlock. What is deadlock, and what
+  //can be done to prevent it? Write in Scala an example of a deadlock using lazy val.
+
+  // Deadlock can be prevented by using a lock, which is a mechanism that allows only one thread to access a resource at a time.
+  // Other solutions are to use lock time-outs and using thread.join() method.
+
   //catch all exceptions and print the stack trace
   try {
     Deadlock.run
