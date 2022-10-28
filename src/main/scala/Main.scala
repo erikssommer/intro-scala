@@ -1,7 +1,3 @@
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.{Await, Future}
-import scala.concurrent.duration.DurationInt
-
 object Main {
   def main(args: Array[String]): Unit = {
 

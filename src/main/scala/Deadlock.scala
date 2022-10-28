@@ -2,7 +2,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.DurationInt
 import scala.concurrent.{Await, Future}
 
-// Write in Scala an example of a deadlock using lazy val
+// Scala example of a deadlock using lazy val
 // https://www.baeldung.com/scala/lazy-val
 
 object Deadlock extends App {

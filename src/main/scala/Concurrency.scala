@@ -5,7 +5,9 @@ class Concurrency {
   // Make sure that the returned thread is not started.
   def thread(func: => Unit): Thread = {
     new Thread {
-      override def run() = { func }
+      override def run(): Unit = {
+        func
+      }
     }
   }
 
