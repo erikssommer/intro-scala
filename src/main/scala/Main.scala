@@ -48,6 +48,8 @@ object Main {
     concurrency.thread(concurrency.improvedIncreaseCounter()).start()
     concurrency.thread(concurrency.improvedIncreaseCounter()).start()
     concurrency.thread(concurrency.printImprovedCounter()).start()
+    
+    // This question was answered in 2 b)
 
     // Task 3: Deadlock in Scala
     Deadlock.run
